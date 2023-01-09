@@ -6,17 +6,19 @@ import android.view.ContextMenu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
-import android.widget.AdapterView
 import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_main.*
+import es.iesoretania.menuopcioneskotlin.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         //Registramos el menú contextual
-        registerForContextMenu(idimageView1)
+        registerForContextMenu(binding.idimageView1)
     }
 
     //Creamos ese menú contextual.
